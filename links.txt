@@ -1,0 +1,12 @@
+gitHub
+https://github.com/padegalmadhuri/nodejs-roommeeting
+56a07cc9e5178607c88773c2c29bfc9cddf74d34
+
+Heroku
+https://nodejs-roommeeting.herokuapp.com/
+
+Api endpoints
+https://nodejs-roommeeting.herokuapp.com/addRooms
+https://nodejs-roommeeting.herokuapp.com/displayRooms
+https://nodejs-roommeeting.herokuapp.com/bookRoom
+https://nodejs-roommeeting.herokuapp.com/bookingsData

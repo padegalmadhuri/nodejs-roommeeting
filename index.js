@@ -27,7 +27,7 @@ app.post('/bookRoom', function (req, res) {
     let book = req.body;
     let flag = true;
     for (let i = 0; i < bookings.length; i++) {
-        if (bookings[i].time === book.time || bookings[i].roomID === book.roomID) {
+        if (bookings[i].time === book.time && bookings[i].roomID === book.roomID) {
             flag = false;
             break;
         }
