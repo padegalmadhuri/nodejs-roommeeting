@@ -26,18 +26,25 @@ app.get('/displayRooms', function (req, res) {
 app.post('/bookRoom', function (req, res) {
     let book = req.body;
     let flag = true;
+    let start = parseInt(req.body["startTime"].split(":").join(""));
+    let end = parseInt(req.body["endTime"].split(":").join(""));
+    //console.log(start,end);
     for (let i = 0; i < bookings.length; i++) {
-        if (bookings[i].time === book.time && bookings[i].roomID === book.roomID) {
-            flag = false;
-            break;
-        }
-    }
+      let checkStart = parseInt(bookings[i].startTime.split(":").join(""));
+      let checkEnd = parseInt(bookings[i].endTime.split(":").join(""));
+      console.log(bookings[i].date,book.date)
+            if (((bookings[i].date).toString() == (book.date).toString()) &&
+            ((start > checkStart && start < checkEnd) ||
+             (end > checkStart && end < checkEnd) || (start == checkStart && end == checkEnd))) {
+                  flag = false;
+            }
+          }
     if (flag) {
         bookings.push(book);
         res.send("Booking done");
     }
     else {
-        res.end("Currently it is not available change the slot ");
+      res.send("the slot is already booked change the slot timimgs if you want")
     }
 });
 
